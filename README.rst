@@ -1,21 +1,16 @@
-pygments-json
-=============
+pygments-hermes
+===============
 
-Pygments_ is a syntax highlighting tool that supports a wide range of
-languages and data formats.  However, pygments does not provide a JSON highlighter.  JSON can,
-of course, be parsed by the Javascript lexer, but the resulting output looks very plain and
-provides limited value over non-highlighted text.
+This provides Pygments with support for highlighting three Hermes formats:
 
-pygments-json_ attempts to provide more interesting syntax highlighting which correctly distinguishes
-between attribute names and values.  I'm new to pygments and to python packaging, so please don't hesitate
-to tell me if I've done something wrong or if the JSON parsing doesn't quite work for you.
-
-The pygments-json JSONLexer has been submitted to the Pygments project for inclusion in an upcoming release.
+1) Grammar Files
+2) Parse Trees
+3) Abstract Syntax Trees
 
 Install
 --------
 
-  $ pip install pygments-json
+  $ python setup.py pygments-hermes
 
 Usage
 -------
@@ -28,8 +23,9 @@ as from the pygementize command:
    ... beautifully formatted json will flow here
 
 
-Norman Richards
-   orb@nostacktrace.com
+Scott Frazer (scott.d.frazer@gmail.com)
+
+Forked from pygments-json by Norman Richards (orb@nostacktrace.com)
 
 .. _Pygments: http://pygments.org/
 .. _pygments-json: https://github.com/orb/pygments-json
