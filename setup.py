@@ -1,15 +1,17 @@
 from setuptools import setup, find_packages
 setup(
-    name = "pygments-json",
+    name = "hermespygments",
     version = "0.1",
-    packages = ['pygson',],
+    packages = ['hermespygments',],
     install_requires = ['Pygments'],
-    author = "Norman Richards",
-    author_email = "orb@nostacktrace.com",
-    description = "Pygments JSON formatter",
-
+    author = "Scott Frazer",
+    author_email = "scott.d.frazer@gmail.com",
+    description = "Pygments for Hermes grammar files, abstract syntax trees, and parse trees",
     entry_points={
-          'pygments.lexers': ['release = pygson.json_lexer:JSONLexer', ]
-    },
-    
+      'pygments.lexers': [
+          'zgr = hermespygments.hermes_lexer:HermesGrammarFileLexer', \
+          'parsetree = hermespygments.hermes_lexer:HermesParseTreeLexer', \
+          'ast = hermespygments.hermes_lexer:HermesAstLexer' \
+        ]
+    }
 )
