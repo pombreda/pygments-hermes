@@ -3,9 +3,9 @@ Hermes plugin for Pygments
 
 This provides Pygments with support for highlighting three Hermes formats:
 
-1) Grammar Files (.hgr)
-2) Parse Trees (.htree)
-3) Abstract Syntax Trees (.hast)
+1. Grammar Files (.hgr)
+2. Parse Trees (.htree)
+3. Abstract Syntax Trees (.hast)
 
 Install
 --------
