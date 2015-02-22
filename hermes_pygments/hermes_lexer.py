@@ -9,8 +9,8 @@ import sys
 
 class HermesParseTreeLexer(RegexLexer):
   name = 'Hermes Parse Tree Lexer'
-  aliases = ['parsetree']
-  filenames = ['*.parsetree']
+  aliases = ['htree']
+  filenames = ['*.htree']
   mimetypes = []
   flags = re.DOTALL
 
@@ -43,8 +43,8 @@ class HermesParseTreeLexer(RegexLexer):
 
 class HermesAstLexer(RegexLexer):
   name = 'Hermes Abstract Syntax Tree Lexer'
-  aliases = ['ast']
-  filenames = ['*.ast']
+  aliases = ['hast']
+  filenames = ['*.hast']
   mimetypes = []
   flags = re.DOTALL
 
