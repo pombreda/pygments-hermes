@@ -10,11 +10,11 @@ This provides Pygments with support for highlighting three Hermes formats:
 Install
 --------
 
-  $ python setup.py install
+    $ python setup.py install
 
-  Or
+Or
 
-  $ pip install pygments-hermes
+    $ pip install pygments-hermes
 
 Usage
 -------
