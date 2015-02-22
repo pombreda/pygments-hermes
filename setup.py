@@ -10,8 +10,8 @@ setup(
     entry_points={
       'pygments.lexers': [
           'hgr = hermes_pygments.hermes_lexer:HermesGrammarFileLexer',
-          'parsetree = hermes_pygments.hermes_lexer:HermesParseTreeLexer',
-          'ast = hermes_pygments.hermes_lexer:HermesAstLexer'
+          'htree = hermes_pygments.hermes_lexer:HermesParseTreeLexer',
+          'hast = hermes_pygments.hermes_lexer:HermesAstLexer'
         ]
     }
 )
