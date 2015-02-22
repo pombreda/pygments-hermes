@@ -1,17 +1,17 @@
 from setuptools import setup, find_packages
 setup(
-    name = "hermespygments",
+    name = "hermes_pygments",
     version = "0.1",
-    packages = ['hermespygments',],
+    packages = ['hermes_pygments',],
     install_requires = ['Pygments'],
     author = "Scott Frazer",
     author_email = "scott.d.frazer@gmail.com",
     description = "Pygments for Hermes grammar files, abstract syntax trees, and parse trees",
     entry_points={
       'pygments.lexers': [
-          'zgr = hermespygments.hermes_lexer:HermesGrammarFileLexer', \
-          'parsetree = hermespygments.hermes_lexer:HermesParseTreeLexer', \
-          'ast = hermespygments.hermes_lexer:HermesAstLexer' \
+          'hgr = hermes_pygments.hermes_lexer:HermesGrammarFileLexer',
+          'parsetree = hermes_pygments.hermes_lexer:HermesParseTreeLexer',
+          'ast = hermes_pygments.hermes_lexer:HermesAstLexer'
         ]
     }
 )
