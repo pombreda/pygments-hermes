@@ -19,9 +19,7 @@ Or
 Usage
 -------
 
-![Hermes Grammar](https://github.com/scottfrazer/pygments-hermes/raw/master/img/hgr.png)
-![Hermes Parse Tree](https://github.com/scottfrazer/pygments-hermes/raw/master/img/htree.png)
-![Hermes Abstract Syntax Tree](https://github.com/scottfrazer/pygments-hermes/raw/master/img/hast.png)
+![Example](https://github.com/scottfrazer/pygments-hermes/raw/master/img/example.png)
 
 Scott Frazer (scott.d.frazer@gmail.com)
 
