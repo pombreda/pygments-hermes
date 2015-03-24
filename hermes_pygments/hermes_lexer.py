@@ -24,7 +24,7 @@ class HermesParseTreeLexer(RegexLexer):
       ],
 
       'token': [
-        (r'(<)([^>]*)(>)', bygroups(Token.Punctuation, Token.Number.Integer, Token.Punctuation))
+        (r'(<)([a-zA-Z0-9_]+:\d+:\d+ [a-zA-Z0-9_]+ "[^"]*")(>)', bygroups(Token.Punctuation, Token.Number.Integer, Token.Punctuation))
       ],
 
       'children': [
@@ -41,12 +41,17 @@ class HermesParseTreeLexer(RegexLexer):
       ]
   }
 
-class HermesAstLexer(RegexLexer):
+class HermesAstLexer(ExtendedRegexLexer):
   name = 'Hermes Abstract Syntax Tree Lexer'
   aliases = ['hast']
   filenames = ['*.hast']
   mimetypes = []
   flags = re.DOTALL
+
+  def attr_terminator(lexer, match, ctx):
+      ctx.stack = ctx.stack[:-1] # Pop stack
+      ctx.pos = match.start() # Leave token to process
+      yield match.start(), Token.Punctuation, ''
 
   tokens = {
       'whitespace': [
@@ -62,7 +67,7 @@ class HermesAstLexer(RegexLexer):
       ],
 
       'token': [
-        (r'(<)([^>]*)(>)', bygroups(Token.Punctuation, Token.Number.Integer, Token.Punctuation))
+        (r'(<)([a-zA-Z0-9_]+:\d+:\d+ [a-zA-Z0-9_]+ "[^"]*")(>)', bygroups(Token.Punctuation, Token.Number.Integer, Token.Punctuation))
       ],
 
       'ast_attr_list': [
@@ -79,8 +84,9 @@ class HermesAstLexer(RegexLexer):
         include('whitespace'),
         include('ast'),
         include('token'),
+        (r'None', Token.Integer),
         (r'\[', Token.Punctuation, 'ast_attr_list'),
-        (r'(,|None|\)|\])', Token.Punctuation, '#pop')
+        (r'(,|\)|\])', attr_terminator)
       ],
 
       'ast_attrs': [
@@ -93,6 +99,7 @@ class HermesAstLexer(RegexLexer):
 
       'root': [
         include('whitespace'),
+        (r'\[', Token.Punctuation, 'ast_attr_list'),
         include('ast')
       ]
   }
@@ -289,7 +296,12 @@ class HermesGrammarFileLexer(ExtendedRegexLexer):
       'root': [
         include('whitespace'),
         (r'grammar', Section),
-        (r'{', Token.Punctuation, 'grammar')
+        (r'{', Token.Punctuation, 'grammar'),
+
+        # These are to allow processing of rules, nonterminals, and terminals all by themselves
+        include('nonterminal'),
+        include('terminal'),
+        (r'=', Token.Punctuation, 'production'),
       ],
 
   }
